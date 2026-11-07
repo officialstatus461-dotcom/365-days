@@ -174,26 +174,44 @@ function playRomanticChime() {
 }
 
 function startMusic() {
-  if (!audioElement) {
-    audioElement = new Audio('assets/music.mp3');
+  if (audioElement && !audioElement.paused) return;
+
+  const audioCandidates = ['bgm.mp3', 'assets/bgm.mp3', 'assets/music.mp3'];
+  let idx = 0;
+
+  function tryPlayNext() {
+    if (idx >= audioCandidates.length) {
+      console.log('No local BGM audio found – playing romantic music-box chimes! 💕');
+      playRomanticChime();
+      return;
+    }
+
+    const path = audioCandidates[idx++];
+    audioElement = new Audio(path);
     audioElement.loop = true;
+    audioElement.volume = 0;
 
     audioElement.addEventListener('error', () => {
-      console.log('assets/music.mp3 not found yet – playing romantic music-box chimes! 💕');
-      playRomanticChime();
-    });
+      console.warn(`Audio ${path} failed to load, trying next...`);
+      tryPlayNext();
+    }, { once: true });
+
+    const playPromise = audioElement.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        if (chimeInterval) {
+          clearInterval(chimeInterval);
+          chimeInterval = null;
+        }
+        gsap.to(audioElement, { volume: 0.65, duration: 2.5 });
+      }).catch((err) => {
+        console.warn(`Playback failed for ${path}:`, err);
+        tryPlayNext();
+      });
+    }
   }
-  
-  audioElement.volume = 0;
-  const playPromise = audioElement.play();
-  if (playPromise !== undefined) {
-    playPromise.catch((err) => {
-      console.log('Music autoplay blocked by browser or missing file:', err);
-      playRomanticChime();
-    });
-  }
-  
-  gsap.to(audioElement, { volume: 0.6, duration: 2.5 });
+
+  tryPlayNext();
 }
 
 
