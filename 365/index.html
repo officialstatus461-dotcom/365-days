@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Anniversary Bhumii 💖</title>
+  <meta name="theme-color" content="#FFD6E0">
+  
+  <!-- Favicon: Tiny Pink Heart -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 90%22><path fill=%22%23FF6B8B%22 d=%22M50 85 C50 85 5 55 5 25 A22 22 0 0 1 50 18 A22 22 0 0 1 95 25 C95 55 50 85 50 85 Z%22/></svg>">
+
+  <!-- Google Fonts: Pacifico, Dancing Script, Quicksand, Nunito, Caveat, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,300..900;1,300..900&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- External Libraries: GSAP 3.12.5 + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Main Application Script -->
+  <script src="script.js" defer></script>
+</head>
+<body class="locked">
+
+  <!-- Ambient Cursor Effects -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+
+  <!-- =====================================================================
+       PRELOADER
+       ===================================================================== -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <svg class="preloader-heart" viewBox="0 0 100 90" aria-label="Loading heart" role="img">
+        <defs>
+          <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF8FA3" />
+            <stop offset="100%" stop-color="#FF5D7A" />
+          </linearGradient>
+          <filter id="heartGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#FF6B8B" flood-opacity="0.45" />
+          </filter>
+        </defs>
+        <path d="M50 85 C50 85 5 55 5 25 A22 22 0 0 1 50 18 A22 22 0 0 1 95 25 C95 55 50 85 50 85 Z" 
+              fill="url(#heartGradient)" 
+              filter="url(#heartGlow)" />
+      </svg>
+      <p class="preloader-text">Loading your love story...</p>
+    </div>
+  </div>
+
+
+  <!-- =====================================================================
+       LOCK SCREEN (AUTHENTICATION)
+       ===================================================================== -->
+  <section id="lock-screen" class="lock-screen">
+    <!-- Ambient Floating Hearts Background -->
+    <div id="floating-hearts-container" aria-hidden="true"></div>
+
+    <!-- Small Corner Teddy: Left (Peeking) -->
+    <svg class="teddy-corner teddy-left" viewBox="0 0 100 90" width="80" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g class="teddy-corner-body">
+        <circle cx="28" cy="30" r="16" fill="#8B5E3C" />
+        <circle cx="30" cy="31" r="9" fill="#C4956A" />
+        <circle cx="78" cy="30" r="16" fill="#8B5E3C" />
+        <circle cx="76" cy="31" r="9" fill="#C4956A" />
+        <circle cx="53" cy="52" r="34" fill="#8B5E3C" />
+        <ellipse cx="53" cy="62" rx="16" ry="12" fill="#C4956A" />
+        <path d="M49 57 Q53 54 57 57 Q53 63 49 57 Z" fill="#20150F" />
+        <path d="M53 60 L53 64 M48 64 Q53 69 58 64" stroke="#20150F" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        <circle cx="39" cy="48" r="4" fill="#20150F" />
+        <circle cx="38" cy="46.5" r="1.5" fill="#FFFFFF" />
+        <circle cx="67" cy="48" r="4" fill="#20150F" />
+        <circle cx="66" cy="46.5" r="1.5" fill="#FFFFFF" />
+        <ellipse cx="33" cy="60" rx="6" ry="4" fill="#FFB6C8" opacity="0.75" />
+        <ellipse cx="73" cy="60" rx="6" ry="4" fill="#FFB6C8" opacity="0.75" />
+        <ellipse cx="25" cy="80" rx="11" ry="8" fill="#8B5E3C" />
+        <ellipse cx="25" cy="80" rx="6" ry="5" fill="#C4956A" />
+        <ellipse cx="80" cy="80" rx="11" ry="8" fill="#8B5E3C" />
+        <ellipse cx="80" cy="80" rx="6" ry="5" fill="#C4956A" />
+      </g>
+    </svg>
+
+    <!-- Small Corner Teddy: Right (Waving) -->
+    <svg class="teddy-corner teddy-right" viewBox="0 0 110 100" width="80" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g class="teddy-corner-body">
+        <circle cx="32" cy="38" r="15" fill="#8B5E3C" />
+        <circle cx="34" cy="39" r="8" fill="#C4956A" />
+        <circle cx="78" cy="38" r="15" fill="#8B5E3C" />
+        <circle cx="76" cy="39" r="8" fill="#C4956A" />
+        <circle cx="55" cy="58" r="32" fill="#8B5E3C" />
+        <ellipse cx="55" cy="67" rx="15" ry="11" fill="#C4956A" />
+        <path d="M51 63 Q55 60 59 63 Q55 68 51 63 Z" fill="#20150F" />
+        <path d="M55 65 L55 69 M50 69 Q55 74 60 69" stroke="#20150F" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        <circle cx="42" cy="54" r="3.8" fill="#20150F" />
+        <circle cx="41" cy="52.5" r="1.4" fill="#FFFFFF" />
+        <circle cx="68" cy="54" r="3.8" fill="#20150F" />
+        <circle cx="67" cy="52.5" r="1.4" fill="#FFFFFF" />
+        <ellipse cx="36" cy="65" rx="5" ry="3.5" fill="#FFB6C8" opacity="0.75" />
+        <ellipse cx="74" cy="65" rx="5" ry="3.5" fill="#FFB6C8" opacity="0.75" />
+        <ellipse cx="30" cy="85" rx="10" ry="7" fill="#8B5E3C" />
+        <ellipse cx="30" cy="85" rx="5" ry="4" fill="#C4956A" />
+        <g class="teddy-arm-wave">
+          <ellipse cx="90" cy="38" rx="8" ry="16" transform="rotate(35 90 38)" fill="#8B5E3C" />
+          <ellipse cx="93" cy="32" rx="5" ry="6" fill="#C4956A" />
+        </g>
+      </g>
+    </svg>
+
+    <!-- Center Card / Lock Form -->
+    <div class="lock-card">
+      <!-- Main Teddy Bear (Inline SVG) -->
+      <svg id="teddy-main" class="teddy-bobbing" viewBox="0 0 200 240" width="200" height="240" xmlns="http://www.w3.org/2000/svg" aria-label="Cute teddy bear holding a heart with keyhole" role="img">
+        <ellipse cx="100" cy="226" rx="68" ry="12" fill="#8B5E3C" opacity="0.18" class="teddy-shadow" />
+        <g class="teddy-body-group">
+          <ellipse cx="64" cy="212" rx="22" ry="18" fill="#8B5E3C" />
+          <ellipse cx="64" cy="213" rx="14" ry="11" fill="#C4956A" />
+          <ellipse cx="136" cy="212" rx="22" ry="18" fill="#8B5E3C" />
+          <ellipse cx="136" cy="213" rx="14" ry="11" fill="#C4956A" />
+          <ellipse cx="100" cy="155" rx="55" ry="60" fill="#8B5E3C" />
+          <ellipse cx="100" cy="162" rx="36" ry="40" fill="#C4956A" />
+        </g>
+        <g class="teddy-head-group">
+          <circle cx="56" cy="62" r="22" fill="#8B5E3C" />
+          <circle cx="58" cy="64" r="13" fill="#C4956A" />
+          <circle cx="144" cy="62" r="22" fill="#8B5E3C" />
+          <circle cx="142" cy="64" r="13" fill="#C4956A" />
+          <circle cx="100" cy="95" r="50" fill="#8B5E3C" />
+          <ellipse cx="70" cy="110" rx="9" ry="6" fill="#FFB6C8" opacity="0.75" />
+          <ellipse cx="130" cy="110" rx="9" ry="6" fill="#FFB6C8" opacity="0.75" />
+          <ellipse cx="100" cy="108" rx="24" ry="18" fill="#C4956A" />
+          <path d="M94 100 Q100 97 106 100 Q100 109 94 100 Z" fill="#20150F" />
+          <path d="M100 105 L100 112 M93 112 Q100 120 107 112" stroke="#20150F" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <g class="teddy-eyes">
+            <g class="teddy-eye teddy-eye-left">
+              <circle cx="78" cy="90" r="5.5" fill="#20150F" />
+              <circle cx="76.5" cy="88" r="2" fill="#FFFFFF" />
+            </g>
+            <g class="teddy-eye teddy-eye-right">
+              <circle cx="122" cy="90" r="5.5" fill="#20150F" />
+              <circle cx="120.5" cy="88" r="2" fill="#FFFFFF" />
+            </g>
+          </g>
+        </g>
+        <g class="teddy-heart-group">
+          <path class="teddy-heart" d="M100 196 C68 174 50 150 63 131 C74 116 93 121 100 137 C107 121 126 116 137 131 C150 150 132 174 100 196 Z" fill="#FFB6C8" stroke="#FFA3B8" stroke-width="2" />
+          <circle cx="100" cy="154" r="4.5" fill="#8B5E3C" />
+          <polygon points="98,154 102,154 103.5,166 96.5,166" fill="#8B5E3C" />
+          <ellipse cx="68" cy="160" rx="14" ry="18" transform="rotate(25 68 160)" fill="#8B5E3C" />
+          <ellipse cx="71" cy="164" rx="8" ry="11" transform="rotate(25 71 164)" fill="#C4956A" />
+          <ellipse cx="132" cy="160" rx="14" ry="18" transform="rotate(-25 132 160)" fill="#8B5E3C" />
+          <ellipse cx="129" cy="164" rx="8" ry="11" transform="rotate(-25 129 164)" fill="#C4956A" />
+        </g>
+      </svg>
+
+      <!-- Lock Screen Headings and Input -->
+      <h1 class="lock-title">Hey Bhumii… who's the one who loves you the most? 💕</h1>
+      <p class="lock-subtitle">Type his name to unlock your surprise 🧸</p>
+      
+      <div class="lock-form">
+        <input type="text" id="password-input" placeholder="Type his name..." autocomplete="off" spellcheck="false">
+        <button type="button" id="unlock-btn">Unlock my heart 💝</button>
+      </div>
+
+      <p id="auth-message" class="auth-message"></p>
+      <div id="welcome-message" class="welcome-message" style="display: none;">Welcome, Bhumii 💖</div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       MAIN CONTENT (REVEALED AFTER UNLOCK)
+       ===================================================================== -->
+  <main id="main-content" style="display: none;">
+
+    <!-- ===================================================================
+         PHASE 1: HERO SECTION
+         =================================================================== -->
+    <section id="hero-section" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">🌸 365 Days Together 🌸</div>
+        <h1 class="hero-title">HAPPY ANNIVERSARY BHUMII 💕🎉</h1>
+        <p class="hero-subtitle">
+          One whole year of sweet smiles, warm hugs, silly memories, and endless love with you. 🧸✨
+        </p>
+        <div class="hero-scroll-prompt">
+          <span class="prompt-text">Scroll down to see our memories 👇</span>
+          <div class="prompt-arrow">💖</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         PHASE 2: 12-MONTH HORIZONTAL MEMORIES (SCROLLS RIGHT TO LEFT)
+         =================================================================== -->
+    <section id="journey-section" class="memories-section">
+      <!-- Section Header Badge -->
+      <div class="memories-header">
+        <span class="memories-badge">✨ 12 Months of Us 🌸</span>
+      </div>
+
+      <!-- Pinned Horizontal Track (Cards slide right to left as user scrolls down) -->
+      <div id="journey-pin-container" class="memories-viewport">
+        <div id="memories-track" class="memories-track">
+          <!-- 12 Month Cards injected by JS -->
+        </div>
+      </div>
+
+      <!-- Progress Track Indicator -->
+      <div id="progress-indicator" class="memories-progress-wrap">
+        <span class="progress-text">Month 01 / 12</span>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         PHASE 3: LETTER & FINALE SECTION
+         =================================================================== -->
+    <section id="letter-section" class="letter-section">
+      <!-- Decorative Petal Divider -->
+      <div class="section-divider-petals" aria-hidden="true">
+        <div class="drifting-petals">
+          <span class="petal p1">🌸</span>
+          <span class="petal p2">🌺</span>
+          <span class="petal p3">🌸</span>
+          <span class="petal p4">🌷</span>
+          <span class="petal p5">🌸</span>
+        </div>
+      </div>
+
+      <!-- Cozy Mailbox Scene -->
+      <div class="mailbox-wrap">
+        <div class="mailbox-badge">💌 A Special Letter 💌</div>
+        <h2 class="mailbox-title">For My Favorite Person In The World</h2>
+        <p class="mailbox-subtitle">A letter written straight from my heart to yours 🧸</p>
+      </div>
+
+      <!-- Love Letter Paper (Lined notebook paper) -->
+      <div class="letter-paper">
+        <div class="wax-seal" aria-hidden="true">💗</div>
+        <div class="letter-header">Dear Bhumii,</div>
+        <div class="letter-body" id="letter-body">
+          <!-- Paragraphs & Photos injected by JS -->
+        </div>
+        <div class="letter-signature">Forever yours, Harsh 💗</div>
+      </div>
+
+      <!-- Grand Anniversary Celebration Finale Directly Beneath Letter -->
+      <div id="finale-section" class="finale-section">
+        <!-- Rapid Countdown / Date Run Card: 8 Nov 2025 to 8 Nov 2026 -->
+        <div id="finale-countdown-box" class="finale-countdown-box">
+          <div class="countdown-badge">⏳ OUR 365 DAYS ⏳</div>
+          <div class="countdown-dates-row">
+            <div class="date-chip start-date">8 Nov 2025</div>
+            <div class="date-arrow">➔</div>
+            <div id="countdown-ticker" class="date-chip current-date">8 Nov 2025</div>
+          </div>
+          <div class="countdown-days-wrap">
+            <span id="countdown-number" class="countdown-number">Day 1</span>
+            <span class="countdown-label">of our forever 💖</span>
+          </div>
+        </div>
+
+        <!-- Celebration Text (Animated in after countdown finishes) -->
+        <div id="finale-celebration-content" class="finale-celebration-content" style="opacity: 0; transform: scale(0.9); pointer-events: none;">
+          <div class="finale-badge">🎉 1 YEAR & FOREVER TO GO 🎉</div>
+          <h2 class="finale-title">Happy 1 Year Anniversary, Bhumii! 💖</h2>
+          <p class="finale-subtitle">
+            Every single day with you is my favourite day. Here's to us, our love, and forever! 🥺🥂
+          </p>
+          <div class="finale-hearts-row">💕 🧸 🌸 💖 🌸 🧸 💕</div>
+        </div>
+      </div>
+
+      <div id="confetti-container" aria-hidden="true"></div>
+    </section>
+
+  </main>
+
+</body>
+</html>
